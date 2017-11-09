@@ -1,13 +1,16 @@
 import path from 'path';
 import nodeExternals from 'webpack-node-externals';
-
+const webpack = require('webpack');
+console.log('here')
 const client = {
   entry: {
-    js: './src/app-client.js',
+    app: ['./src/app-client.js'],
+    vendor: ['jquery', 'bootstrap']
   },
   output: {
-    path: path.join(__dirname, 'src', 'static', 'js'),
-    filename: 'bundle.js',
+    path: __dirname + '/dist/',
+    filename: '[name].entry.js',
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -20,6 +23,24 @@ const client = {
       },
     ],
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: Infinity,
+      filename: 'vendor.js',
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        CLIENT: JSON.stringify(true),
+        'NODE_ENV': JSON.stringify('development'),
+      }
+    }),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    })
+  ],
 };
 
 const server = {

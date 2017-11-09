@@ -5,7 +5,7 @@ export const Layout = props => (
   <div className="app-container">
     <header>
       <Link to="/">
-        <img className="logo" src="/img/logo-judo-heroes.png" alt="Judo Heroes logo" />
+        <img className="logo" src="/img/logo.jpg" alt="Logo" />
       </Link>
     </header>
     <div className="app-content">{props.children}</div>

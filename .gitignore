@@ -38,3 +38,5 @@ jspm_packages
 .babel_cache
 
 src/server-es5.js
+/uploads
+/images
