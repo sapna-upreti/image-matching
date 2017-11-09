@@ -35,9 +35,9 @@ export default class AddForm extends Component {
 	
 	render() {
 		return (
-			<div className="home">
-				<div>Image Search:</div>
-				<Heading type={this.state.name}></Heading>
+			<div className="col-sm-4 col-sm-offset-4">
+				{/* <div>Image Search:</div> */}
+				<Heading></Heading>
 			</div>
 		)
 	}
@@ -75,8 +75,9 @@ class Heading extends Component {
 // }
 
 handleUploadFile (event) {
+	console.log(event)
 	event.preventDefault();
-	console.log(this.files, this.name);
+	console.log(this.files);
 	// const data1 = new FormData(this.form);
 	const data = new FormData(this.form);
 	// data.append('files', this.files);
@@ -97,13 +98,13 @@ handleUploadFile (event) {
 		const that = this;
 		return (<div>
 			{/* <h1>{this.props.type}</h1> */}
-
-			<form onSubmit={this.handleUploadFile.bind(this)} encType="multipart-formdata" ref={function(form) { that.form = form}}>
-				<label>Name of the Disease:</label>
-				<br/>
-				<input type="text" ref={function(name) { that.name = name}}/>
-				<input type="file" name="files" multiple ref={function(name) { that.files = name}} />
-				<input type="submit" /> 
+			<form role="form" onSubmit={this.handleUploadFile.bind(this)} encType="multipart-formdata" ref={function(form) { that.form = form}}>
+				<div className="col-sm-8">
+					<input className="form-control form-group" type="file" name="files" placeholder="Select image to match..." multiple ref={function(name) { that.files = name}} />
+				</div>
+				<div className="col-sm-4">
+					<input className="btn btn-success form-group" value="Search" type="submit" />
+				</div> 
 			</form>
 			
 		</div>

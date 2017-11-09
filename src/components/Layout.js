@@ -9,11 +9,8 @@ export const Layout = props => (
       </Link>
     </header>
     <div className="app-content">{props.children}</div>
-    <footer>
-      <p>
-        This is a demo app to showcase <strong>universal Javascript</strong>
-        with <strong>React</strong> and <strong>Express</strong>.
-      </p>
+    <footer className="col-sm-12 text-center">
+      <div>This image matcher, matches the images with the dataset <a href="http://nodexperts.com" target="_blank">&copy; NodeXperts 2017</a></div>
     </footer>
   </div>
 );

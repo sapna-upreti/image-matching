@@ -65,7 +65,7 @@ export function imageMatcher(filepath, cb) {
           console.log(res.length)
           if(i >= res.length) {
             console.log('min', min)
-            if (min._id && min.value >= 50) {
+            if (min._id && min.value >= 60) {
               cb(null, min);
             } else {
               cb();

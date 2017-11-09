@@ -35,8 +35,8 @@ export default class AddForm extends Component {
 	
 	render() {
 		return (
-			<div className="home">
-				<div>Image Search:</div>
+			<div className="col-sm-4 col-sm-offset-4">
+				{/* <div>Image Search:</div> */}
 				<Heading type={this.state.name}></Heading>
 			</div>
 		)
@@ -64,13 +64,13 @@ class Heading extends Component {
 	render() {
     const that = this;
       return (<div>
-        <h1>{this.props.type}</h1>
+        {/* <h1>{this.props.type}</h1> */}
         <form onSubmit={this.handleUploadFile.bind(this)} encType="multipart-formdata" ref={function(form) { that.form = form}}>
-        <label>Name of the Disease:</label>
-				<br/>
-				<input type="text" ref={function(name) { that.name = name}}/>
-        <input type="file" name="files" multiple ref={function(name) { that.files = name}} />
-        <input type="submit" /> 
+          <label className="control-label">Name of the Disease:</label>
+          <br/>
+          <input className="form-control form-group" type="text" ref={function(name) { that.name = name}}/>
+          <input className="form-control form-group" type="file" name="files" multiple ref={function(name) { that.files = name}} />
+          <input className="btn btn-success form-group" type="submit" /> 
         </form>
         
       </div>
